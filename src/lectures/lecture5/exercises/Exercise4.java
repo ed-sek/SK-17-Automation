@@ -11,9 +11,9 @@ public class Exercise4 {
     static void findMultipleOf5() {
         int[] array = {858, 519, 601, 257, 28, 30, 481, 635, 141, 563};
 
-        for(int num : array) {
-            if (num%5==0) {
-                System.out.println(num);
+        for(int number : array) {
+            if (number%5==0) {
+                System.out.println(number);
                 break;
             }
         }
