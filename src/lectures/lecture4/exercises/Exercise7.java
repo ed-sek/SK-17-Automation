@@ -23,8 +23,8 @@ public class Exercise7 {
         int tempChoice = sc.nextInt();
 
         if (tempChoice == 1) {
-            double celsiustoF = (tempInput*1.8)+32;
-            System.out.printf("The temperature in Fahrenheit is: %.2f°F",celsiustoF);
+            double celsiusToF = (tempInput*1.8)+32;
+            System.out.printf("The temperature in Fahrenheit is: %.2f°F",celsiusToF);
         } else if (tempChoice == 2) {
             double fahrenheitToC = (tempInput-32)*0.555;
             System.out.printf("The temperature in Celsius is: %.2f°C", fahrenheitToC);
