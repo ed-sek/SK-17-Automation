@@ -36,7 +36,7 @@ public class Exercise5 {
         int userChoice = 0; // initial declaration
 
         do {
-            System.out.println("|TASK-LIST MENU|\n[1] Add a new task;\n[2] Mark a task as completed;\n[3] Remove completed tasks;\n[4] Display the current task list;\n[5] Display the completed tasks list;\n[6] Exit the program;\nPlease enter your choice from the  menu options now:\n...");
+            System.out.println("|TASK-LIST MENU|\n[1] Add a new task;\n[2] Mark a task as completed;\n[3] Remove completed tasks;\n[4] Display the current task list;\n[5] Display the completed tasks list;\n[6] Exit the program;\nPlease enter your choice from the menu options now:\n...");
             userChoice = sc.nextInt();
             sc.nextLine(); // Consume the leftover newline character (\n) after nextInt() to clear the buffer
 
