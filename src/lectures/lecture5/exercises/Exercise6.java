@@ -7,6 +7,7 @@ public class Exercise6 {
         calculateAverage();
     }
 
+    // print average of a given list
     static void calculateAverage() {
         int[] array = {302, 431, 96, 880, 14, 834, 47, 828, 899, 44};
         int sum = 0;
