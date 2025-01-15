@@ -24,31 +24,45 @@ public class Exercise7_2 {
 
         Queue<String> cofeeShopQueue = new LinkedList<>();
 
-        int userMenuChoice = 0;
-        do {
-            System.out.println("|QUEUE MENU|\n[1] Add a new customer to the queue;\n[2] Remove a customer from the queue;\n[3] View the current line of the queue;\n[4] Exit the program;\nPlease enter your choice from menu items above: \n...");
-            userMenuChoice = sc.nextInt();
-            sc.nextLine(); // Consume the leftover newline character (\n) after nextInt() to clear the buffer
+        boolean isMenuActive = true;
+        while (isMenuActive) {
+            System.out.println("\n|QUEUE MENU|");
+            System.out.println("[1] Add a new customer to the queue;");
+            System.out.println("[2] Remove a customer from the queue;");
+            System.out.println("[3] View the current line of the queue;");
+            System.out.println("[4] Exit the program;");
+            System.out.println("Please enter your choice from menu items above: ");
 
-            switch (userMenuChoice) {
+            int userChoice = sc.nextInt();
+            sc.nextLine(); // Consume the leftover newline character (\n) after nextInt() to clear the buffer
+            switch (userChoice) {
                 case 1:
                     System.out.println("Please add a new customer to the queue: ");
-                    cofeeShopQueue.add(sc.nextLine());
-                    System.out.println("New customer added to the queue");
+                    String newCustomer = sc.nextLine();
+                    cofeeShopQueue.add(newCustomer);
+                    System.out.println("New customer added to the queue: " + newCustomer);
                     break;
                 case 2:
-                    System.out.println("The first customer got served and is removed. This is: " + cofeeShopQueue.peek());
-                    cofeeShopQueue.poll();
+                    if (cofeeShopQueue.isEmpty()) {
+                        System.out.println("There are no customers in queue at the moment. Please add some customers and try again.");
+                    } else {
+                        System.out.println("The first customer in line got served and is removed. This is: " + cofeeShopQueue.poll());
+                    }
                     break;
                 case 3:
-                    System.out.println("This is the current queue status: " + cofeeShopQueue);
+                    if (cofeeShopQueue.isEmpty()) {
+                        System.out.println("There are no customers in queue at the moment. Please add some customers and try again.");
+                    } else {
+                        System.out.println("This is the current queue status: " + cofeeShopQueue);
+                    }
                     break;
                 case 4:
                     System.out.println("Exiting program. Goodbye!");
+                    isMenuActive = false;
                     break;
                 default:
                     System.out.println("Invalid selection. Please try again: ");
             }
-        } while (userMenuChoice != 4);
+        }
     }
 }

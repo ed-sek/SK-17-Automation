@@ -21,34 +21,48 @@ public class Exercise7 {
 
         LinkedList<String> contactList = new LinkedList<>();
 
-        int userMenuChoice = 0;
-        do {
-            System.out.println("|CONTACT-LIST MENU|\n[1] Add a contact to the list;\n[2] View the contact list\n[3] Remove a contact from the list;\n[4] Exit the program;\nPlease enter your choice from menu items above: \n...");
-            userMenuChoice = sc.nextInt();
-            sc.nextLine(); // Consume the leftover newline character (\n) after nextInt() to clear the buffer
+        boolean isMenuActive = true;
+        while (isMenuActive) {
+            System.out.println("\n|CONTACT-LIST MENU|");
+            System.out.println("[1] Add a contact to the list;");
+            System.out.println("[2] View the contact list;");
+            System.out.println("[3] Remove a contact from the list;");
+            System.out.println("[4] Exit the program;");
+            System.out.println("Please enter your choice from menu items above: ");
 
-            switch (userMenuChoice){
+            int userChoice = sc.nextInt();
+            sc.nextLine(); // Consume the leftover newline character (\n) after nextInt() to clear the buffer
+            switch (userChoice) {
                 case 1:
-                    System.out.println("This is your Contact list currently: " + contactList);
                     System.out.println("Please add your new contact's names: ");
-                    contactList.add(sc.nextLine());
-                    System.out.println("New contact added.");
+                    String newContact = sc.nextLine();
+                    contactList.add(newContact);
+                    System.out.println("New contact entry added: " + newContact);
                     break;
                 case 2:
-                    System.out.println("The current contact list is: " + contactList);
+                    if (contactList.isEmpty()) {
+                        System.out.println("Your contact list is empty. Please add some contacts and try again.");
+                    } else {
+                        System.out.println("The current contact list is: " + contactList);
+                    }
                     break;
                 case 3:
-                    System.out.println(contactList);
-                    System.out.println("Which contact would you like to remove?");
-                    contactList.remove(sc.nextLine());
-                    System.out.println("Contact removed.");
+                    if (contactList.isEmpty()) {
+                        System.out.println("Your contact list is empty. Please add some contacts and try again");
+                    } else {
+                        System.out.println(contactList);
+                        System.out.println("Which contact would you like to remove? Type the position.");
+                        int removedContact = sc.nextInt();
+                        System.out.println("Contact removed: " + contactList.remove(removedContact-1));
+                    }
                     break;
                 case 4:
                     System.out.println("Exiting program. Goodbye!");
+                    isMenuActive = false;
                     break;
                 default:
                     System.out.println("Invalid selection. Please try again: ");
             }
-        } while (userMenuChoice != 4);
+        }
     }
 }

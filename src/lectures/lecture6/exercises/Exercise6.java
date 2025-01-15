@@ -32,22 +32,29 @@ public class Exercise6 {
             winningLotteryNumbers.add(randomNumGenerator.nextInt(49)+1); // the +1 shifts the entire range up by one so it is 1-49
         }
 
-        System.out.println("Please input your guesses for the winning numbers. Range is between 1-49: ");
+        System.out.println("Please input your first guess for the winning numbers. Range is between 1-49: ");
         for (int i = 0; i < 6; i++) {
             userLotteryNumbers.add(sc.nextInt());
             System.out.println("Number recorded. Numbers to add remaining: " + (5-i));
         }
 
-        int userMenuChoice = 0;
-        do {
-            System.out.println("|LOTTERY-NUMBERS MENU|\n[1] Check if a given number is a winning number;\n[2] View all winning numbers;\n[3] Exit the program;\nPlease enter your choice from menu items above: \n...");
-            userMenuChoice = sc.nextInt();
+        boolean isMenuActive = true;
+        while (isMenuActive) {
 
-            switch (userMenuChoice) {
+            System.out.println("\n|LOTTERY-NUMBERS MENU|");
+            System.out.println("[1] Check if a given number is a winning number;");
+            System.out.println("[2] View all winning numbers");
+            System.out.println("[3] Exit the program;");
+            System.out.println("Please enter your choice from menu items above: ");
+
+
+            int userChoice = sc.nextInt();
+            sc.nextLine(); // Consume the leftover newline character (\n) after nextInt() to clear the buffer
+            switch (userChoice) {
                 case 1:
                     System.out.println("These are your lottery number guesses currently: " + userLotteryNumbers);
                     System.out.println("Please select the position of the number you want to check: ");
-                    int userCheckNumber = userLotteryNumbers.get(sc.nextInt()-1);
+                    int userCheckNumber = userLotteryNumbers.get(sc.nextInt() - 1);
 
                     if (winningLotteryNumbers.contains(userCheckNumber)) {
                         System.out.println("Congratulations!!!\n" + userCheckNumber + " is a winning number.");
@@ -59,11 +66,12 @@ public class Exercise6 {
                     System.out.println("The winning numbers are: " + winningLotteryNumbers);
                     break;
                 case 3:
-                    System.out.println("Exiting the program. Goodbye");
+                    System.out.println("Exiting the program. Goodbye!");
+                    isMenuActive = false;
                     break;
                 default:
                     System.out.println("Invalid selection. Please try again.");
             }
-        } while (userMenuChoice != 3);
+        }
     }
 }

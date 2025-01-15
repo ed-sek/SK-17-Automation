@@ -22,24 +22,20 @@ public class Exercise5 {
         ArrayList<String> currentTaskList = new ArrayList<>();
         ArrayList<String> completedTaskList = new ArrayList<>();
 
-        System.out.println("Hello. This program can create and interact with a to-do list.");
+        boolean isMenuActive = true;
+        while (isMenuActive) {
+            System.out.println("\n|TASK-LIST MENU|");
+            System.out.println("[1] Add a new task;");
+            System.out.println("[2] Mark a task as completed");
+            System.out.println("[3] Remove completed tasks;");
+            System.out.println("[4] Display the current task list;");
+            System.out.println("[5] Display the completed tasks list;");
+            System.out.println("[6] Exit the program;");
+            System.out.println("Please enter your choice from the menu options now: ");
 
-        System.out.println("Let's start by adding your first 3 tasks.\nPlease enter the first task: ");
-        currentTaskList.add(sc.nextLine());
 
-        System.out.println("Please enter the second task: ");
-        currentTaskList.add(sc.nextLine());
-
-        System.out.println("Please enter the third task: ");
-        currentTaskList.add(sc.nextLine());
-
-        int userChoice = 0; // initial declaration
-
-        do {
-            System.out.println("|TASK-LIST MENU|\n[1] Add a new task;\n[2] Mark a task as completed;\n[3] Remove completed tasks;\n[4] Display the current task list;\n[5] Display the completed tasks list;\n[6] Exit the program;\nPlease enter your choice from the menu options now:\n...");
-            userChoice = sc.nextInt();
+            int userChoice = sc.nextInt();
             sc.nextLine(); // Consume the leftover newline character (\n) after nextInt() to clear the buffer
-
             switch (userChoice) {
                 case 1:
                     System.out.println("Please enter a new task now: ");
@@ -48,29 +44,41 @@ public class Exercise5 {
                     System.out.println("New task added!");
                     break;
                 case 2:
-                    System.out.println(currentTaskList);
-                    System.out.println("Which task would you like to mark as completed? Enter number matching the position: ");
+                    System.out.println("Which task would you like to mark as completed from your current tasks? Enter number matching the position: " + currentTaskList);
                     int userChoiceCompleted = sc.nextInt();
                     completedTaskList.add(currentTaskList.get(userChoiceCompleted - 1));
                     System.out.println("Task marked as completed: " + currentTaskList.get(userChoiceCompleted - 1));
                     currentTaskList.remove(userChoiceCompleted - 1);
                     break;
                 case 3:
-                    completedTaskList.clear();
-                    System.out.println("All completed tasks cleared.");
+                    if (currentTaskList.isEmpty()) {
+                        System.out.println("The completed task list is empty. Please complete some tasks first and try again.");
+                    } else {
+                        completedTaskList.clear();
+                        System.out.println("All completed tasks cleared.");
+                    }
                     break;
                 case 4:
-                    System.out.println("Current task list: " + currentTaskList);
+                    if (currentTaskList.isEmpty()) {
+                        System.out.println("The current task list is empty. Please add some tasks first and try again.");
+                    } else {
+                        System.out.println("Current task list: " + currentTaskList);
+                    }
                     break;
                 case 5:
-                    System.out.println("Current completed task list: " + completedTaskList);
+                    if (completedTaskList.isEmpty()) {
+                        System.out.println("The completed task list is empty. Please complete some tasks first and try again.");
+                    } else {
+                        System.out.println("Current completed task list: " + completedTaskList);
+                    }
                     break;
                 case 6:
                     System.out.println("Exiting program. Goodbye!");
+                    isMenuActive = false;
                     break;
                 default:
                     System.out.println("Invalid selection. Please try again: ");
-                }
-        } while (userChoice != 6);
+            }
+        }
     }
 }
