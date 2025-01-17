@@ -1,0 +1,8 @@
+# Default ignored files
+/*
+
+# Exceptions to the catch-all rule below
+!/.gitignore
+!/misc.xml
+!/modules.xml
+!/vcs.xml
