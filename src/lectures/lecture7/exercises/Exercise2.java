@@ -5,7 +5,6 @@ import java.util.Scanner;
 // import the HashSet class
 import java.util.HashSet;
 
-
 public class Exercise2 {
 
     static Scanner sc = new Scanner(System.in);
