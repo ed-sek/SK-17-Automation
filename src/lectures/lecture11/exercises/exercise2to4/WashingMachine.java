@@ -1,4 +1,4 @@
-package lectures.lecture11.exercises.exercise2;
+package lectures.lecture11.exercises.exercise2to4;
 
 public class WashingMachine extends Appliance {
     int loadCapacity;
