@@ -9,9 +9,5 @@ public class E1_CalculateAndDisplayArea {
 
         System.out.println("The calculated area of " + myCircle + " is: " + myCircle.displayCalculatedArea());
         System.out.println("The calculated area of " + myRectangle + " is: " + myRectangle.displayCalculatedArea());
-
-
-
-
     }
 }

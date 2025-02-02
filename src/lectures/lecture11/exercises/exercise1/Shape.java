@@ -5,5 +5,4 @@ public class Shape {
     public double displayCalculatedArea() {
         return 0;
     }
-
 }
