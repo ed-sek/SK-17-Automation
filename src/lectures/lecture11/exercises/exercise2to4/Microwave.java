@@ -16,6 +16,7 @@ public class Microwave extends Appliance {
         System.out.println("The load capacity is: " + this.loadCapacity);
         System.out.println("The current load is: " + this.currentLoad);
     }
+
     public void getCurrentAndMaxTemp() {
         System.out.println("The max temperature is: " + this.maxTemperature + "°C");
         System.out.println("The current temperature is: " + this.currentTemperature + "°C");
@@ -39,7 +40,7 @@ public class Microwave extends Appliance {
     }
 
     public void putFoodIn(int putFoodIn) {
-        if ((currentLoad+putFoodIn) <= loadCapacity) {
+        if ((currentLoad + putFoodIn) <= loadCapacity) {
             currentLoad += putFoodIn;
             System.out.println("More food added : " + putFoodIn + 'L');
         } else {

@@ -14,7 +14,7 @@ public class E1_UserInputValidation {
         sc.close();
     }
 
-     static void enterInteger() {
+    static void enterInteger() {
         System.out.println("This program takes an integer and prints it out.");
 
         while (true) {

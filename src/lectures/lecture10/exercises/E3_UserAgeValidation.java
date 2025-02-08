@@ -17,8 +17,8 @@ public class E3_UserAgeValidation {
 
     // call the validateAge method and handles any propagated exceptions
     static void handleAgeValidation(int userAge) {
-    try {
-        int validAge = validateAge(userAge);
+        try {
+            int validAge = validateAge(userAge);
             System.out.println("Great! Valid age entered: " + validAge);
         } catch (IllegalArgumentException exIA) {
             System.out.println("Exception occurred! Please fix and try again: " + exIA.getMessage());

@@ -31,6 +31,4 @@ public class PartTimeEmployee extends Employee {
     public double getHoursWorked() {
         return hoursWorked;
     }
-
-
 }
