@@ -90,6 +90,8 @@ public abstract class Person {
         }
     }
 
+    // please note that due to the exercise's condition 'use only EGN with year in range 1900-1999',
+    // this method will always return true, as we can't have a concrete person object with age < 26
     public boolean isAdult() {
         switch (this.countryOfResidence.toLowerCase()) {
             case "bulgaria", "italy":
@@ -113,7 +115,7 @@ public abstract class Person {
     }
 
     public boolean canTakeLoan() {
-        return this.job != null && !this.job.isEmpty();
+        return this.job != null && !this.job.isBlank(); // using isBlank() (Java 11+) to check for both: empty and whitespace-only input
     }
 
     public void printPersonsFavouriteFood() {
@@ -136,7 +138,8 @@ public abstract class Person {
                 ", greeting='" + this.sayHello() + '\'' +
                 ", celebratesEaster?=" + this.celebrateEaster() +
                 ", isAdult?=" + this.isAdult() +
-                ", canTakeALoan?=" + this.canTakeLoan();
+                ", canTakeALoan?=" + this.canTakeLoan() +
+                "}";
     }
 
     public String getJob() {
