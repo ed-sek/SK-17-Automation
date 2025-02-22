@@ -1,4 +1,4 @@
-# SK-17-Automation: Java Learning Practice Repository
+# SK-17-Automation-Java: Learning & Practice Repository
 
 ## Overview
 
